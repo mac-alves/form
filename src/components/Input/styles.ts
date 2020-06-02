@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    margin-bottom: 10px;
     width: 100%;
 `;
 
@@ -10,32 +9,32 @@ export const InputField = styled.input`
     width: 100%;
     padding: 5px;
     padding-left: 10px;
-    margin-bottom: 5px;
-    background-color: transparent;
-    border: 2px solid rgba(3, 229, 168, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
     font-size: 20px;
-    color: #03e5a8;
+    color: #ccc;
     transition: all 0.3s linear;
     height: ${props => props.height + 'px'};
+    border-radius: 5px;
 
     ::-webkit-input-placeholder{
-        color: rgb(3, 229, 168, 0.6);
+        color: #43b581;
     }
 
     :-moz-placeholder { /* Firefox 18- */
-        color: rgb(3, 229, 168, 0.6);
+        color: #43b581;
     }
 
     ::-moz-placeholder {  /* Firefox 19+ */
-        color: rgb(3, 229, 168, 0.6);
+        color: #43b581;
     }
 
     :-ms-input-placeholder{
-        color: rgb(3, 229, 168, 0.6);
+        color: #43b581;
     }
 
     &:focus{
-        border: 2px solid rgba(3, 229, 168, 1);
+        border: 2px solid #43b581;
     }
 `;
 
