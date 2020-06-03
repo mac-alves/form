@@ -9,6 +9,7 @@ export const Container = styled.div`
     align-self: center;
     border: 1px solid #faa61a;
     border-radius: 50px;
+    position: relative;
 
     input {
         display: none
@@ -50,20 +51,14 @@ export const Container = styled.div`
 `;
 
 export const Img = styled.img`
-    max-width:225px;
-    max-height:225px;
+    max-width:196px;
+    max-height:196px;
     width: auto;
     height: auto;
     z-index: 0;
     position: absolute;
     transition: all 0.3s linear;
-
-    &.imgUser {
-        border: 6px solid;
-        border-image-source: linear-gradient(128deg,rgb(255, 235, 185),rgb(234, 173, 155));
-        border-image-slice: 1;
-        box-shadow: 4px 4px 3px 0px #af544e;
-    }
+    border-radius: 50px;
 `;
 
 export const Label = styled.label`
@@ -76,6 +71,7 @@ export const Label = styled.label`
     align-items: center;
     cursor: pointer;
     display: none;
+    border-radius: 50px;
 `;
 
 export const Error = styled.span`

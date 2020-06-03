@@ -8,11 +8,12 @@ import {
   Footer
 } from './styles';
 import GlobalStyle from './styles/global';
-import Input from './components/Input';
-import File from './components/File';
-import FileImg from './components/FileImg';
-import Radio from './components/Radio';
-import CheckBox from './components/CheckBox';
+import Input from './components/Form/Input';
+import File from './components/Form/File';
+import FileImg from './components/Form/FileImg';
+import Radio from './components/Form/Radio';
+import CheckBox from './components/Form/CheckBox';
+import Slider from './components/Form/Slider';
 
 const App: React.FC = () => {
 
@@ -34,6 +35,7 @@ const App: React.FC = () => {
           <Input name="password" type="password" />
           {/* <Radio /> */}
           {/* <CheckBox /> */}
+          <Slider name="range" />
         </Camps>
         <Footer>
           <Submit>Salvar</Submit>

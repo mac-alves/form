@@ -11,6 +11,8 @@ import { BsPlusSquareFill } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
 import { GoOctoface } from 'react-icons/go';
 
+import Modal from '../../Modal';
+
 interface Props {
   name: string;
 }
@@ -18,10 +20,12 @@ interface Props {
 type InputProps = JSX.IntrinsicElements['input'] & Props;
 
 const FileImg: React.FC<InputProps> = ({ name, ...rest }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const { fieldName, registerField, error } = useField(name);
-    const [preview, setPreview] = useState<string | null>(null);
+    const [ preview, setPreview] = useState<string | null>(null);
+    const [ finalImg, setFinalImg] = useState<string | null>(null);
     const [ classAnimate, setClassAnimate ] = useState('');
+    const [ modalOpen, setModalOpen ] = useState(false);
 
     function animateImg() {
         if (classAnimate === '') {
@@ -32,6 +36,8 @@ const FileImg: React.FC<InputProps> = ({ name, ...rest }) => {
     }
 
     const handlePreview = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setModalOpen(true);
+
         const file = e.target.files?.[0];
         if (!file) {
             setPreview(null);
@@ -52,25 +58,34 @@ const FileImg: React.FC<InputProps> = ({ name, ...rest }) => {
             },
             setValue(_: HTMLInputElement, value: string) {
                 setPreview(value);
-            }
-        })
-    }, [fieldName, registerField]);
+            }     
+        })       
+    }, [fieldName, finalImg, registerField]);
     
     return (
-        <Container onAnimationEnd={animateImg} >
-            { (preview) ? <Img src={preview} alt="Preview" className="imgUser"/> : 
-                          <GoOctoface size={100} /> }
-            <Label htmlFor="imgInput" className={classAnimate} >
-                { (preview) ? <BsPlusSquareFill size={40} /> : <FaEdit size={40} /> }                
-            </Label>
-            {/* { (error && (preview === UserImg)) && <Error>{error}</Error> } */}
-            <input
-                type="file"
-                id="imgInput"
-                ref={inputRef}
-                onChange={handlePreview}
-                {...rest} />
-        </Container>
+        <>
+            <Container onAnimationEnd={animateImg} >
+                { (finalImg) ? <Img src={finalImg} alt="Preview" className="imgUser"/> : 
+                            <GoOctoface size={100} /> }
+                <Label htmlFor="imgInput" className={classAnimate} >
+                    { (finalImg) ? <BsPlusSquareFill size={40} /> : <FaEdit size={40} /> }                
+                </Label>
+                {/* { (error && (preview === UserImg)) && <Error>{error}</Error> } */}
+                <input
+                    type="file"
+                    id="imgInput"
+                    ref={inputRef}
+                    onChange={handlePreview}
+                    {...rest} />
+            </Container>
+            {preview && <Modal 
+                stateOpen={modalOpen} 
+                setStateOpen={setModalOpen} 
+                previewImg={preview}
+                setFinalImg={setFinalImg}
+                finalImg={finalImg}
+                inputRef={inputRef} />}
+        </>
     );
 }
 
