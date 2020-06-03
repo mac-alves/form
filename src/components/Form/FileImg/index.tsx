@@ -26,6 +26,7 @@ const FileImg: React.FC<InputProps> = ({ name, ...rest }) => {
     const [ finalImg, setFinalImg] = useState<string | null>(null);
     const [ classAnimate, setClassAnimate ] = useState('');
     const [ modalOpen, setModalOpen ] = useState(false);
+    const [ id, setId ] = useState(1 + Math.random() * (99));
 
     function animateImg() {
         if (classAnimate === '') {
@@ -65,15 +66,15 @@ const FileImg: React.FC<InputProps> = ({ name, ...rest }) => {
     return (
         <>
             <Container onAnimationEnd={animateImg} >
-                { (finalImg) ? <Img src={finalImg} alt="Preview" className="imgUser"/> : 
-                            <GoOctoface size={100} /> }
-                <Label htmlFor="imgInput" className={classAnimate} >
-                    { (finalImg) ? <BsPlusSquareFill size={40} /> : <FaEdit size={40} /> }                
+                { (finalImg) ? <Img src={finalImg} alt="Preview"/> : 
+                            <GoOctoface size={100} id="defaultImg" /> }
+                <Label htmlFor={id.toString()} className={classAnimate} >
+                    { (!finalImg) ? <BsPlusSquareFill size={40} /> : <FaEdit size={40} /> }                
                 </Label>
                 {/* { (error && (preview === UserImg)) && <Error>{error}</Error> } */}
                 <input
                     type="file"
-                    id="imgInput"
+                    id={id.toString()}
                     ref={inputRef}
                     onChange={handlePreview}
                     {...rest} />

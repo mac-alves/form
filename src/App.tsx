@@ -26,8 +26,8 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Form onSubmit={handleSubmit}>
         <Files>
-          <FileImg name="img" />
-          <File />
+          <FileImg name="img" accept="image/png, image/jpeg, image/jpg" />
+          <File name="arquivos" />
         </Files>
         <Camps>
           <Input name="name" type="text" />

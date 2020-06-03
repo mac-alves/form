@@ -15,6 +15,10 @@ export const Container = styled.div`
         display: none
     }
 
+    #defaultImg {
+        transition: all 0.3s linear;
+    }
+
     @keyframes fade-in {
         from {
             opacity: 0;
@@ -34,7 +38,7 @@ export const Container = styled.div`
     }
 
     &:hover {
-        img {
+        img, #defaultImg {
             opacity: 0.5;
         }
 
