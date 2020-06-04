@@ -24,14 +24,13 @@ const Input: React.FC<InputProps> = ({ name, height = 50, ...rest }) => {
     }, [fieldName, registerField]);
 
     return (
-        <Container>
+        <Container height={height}>
             <InputField
                 ref={inputRef}
                 id={fieldName}
                 defaultValue={defaultValue}
-                {...rest}
                 autoComplete="off"
-                height={height}
+                {...rest}
             />
             { error && <Error>{error}</Error> }
         </Container>

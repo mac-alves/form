@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export declare type InputStyleProps = {
+    height: number;
+}
+
+export const Container = styled.div<InputStyleProps>`
     width: 100%;
+    height: ${props => props.height + 'px'};
 `;
 
 export const InputField = styled.input`
@@ -14,7 +19,7 @@ export const InputField = styled.input`
     font-size: 20px;
     color: #ccc;
     transition: all 0.3s linear;
-    height: ${props => props.height + 'px'};
+    height: 100%;
     border-radius: 5px;
 
     ::-webkit-input-placeholder{

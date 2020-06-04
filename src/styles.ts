@@ -29,13 +29,27 @@ export const Files = styled.div`
     grid-area: file;
     display: flex;
     flex-direction: column;
+    align-items: center;
+
+    & > div:not(:last-child) {
+        margin-bottom: 20px;
+    }
 `;
 
-export const Camps = styled.div`
+export const Fields = styled.div`
     grid-area: camps;
 
     & > div:not(:last-child) {
         margin-bottom: 20px;
+    }
+`;
+
+export const Camps = styled.div`
+    width: 100%;
+    display: flex;
+
+    & > div:not(:last-child) {
+        margin-right: 20px;
     }
 `;
 

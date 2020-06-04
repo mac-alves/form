@@ -4,6 +4,7 @@ import {
   Submit, 
   Form,
   Files,
+  Fields,
   Camps,
   Footer
 } from './styles';
@@ -17,6 +18,11 @@ import Slider from './components/Form/Slider';
 
 const App: React.FC = () => {
 
+  const options = [
+    { label: "Homem", value: "M" },
+    { label: "Mulher", value: "F" }
+  ]
+
   function handleSubmit(data: object) {
     console.log(data);
   }
@@ -29,14 +35,18 @@ const App: React.FC = () => {
           <FileImg name="img" accept="image/png, image/jpeg, image/jpg" />
           <File name="arquivos" />
         </Files>
-        <Camps>
+        <Fields>
           <Input name="name" type="text" />
           <Input name="email" type="email" />
-          <Input name="password" type="password" />
-          {/* <Radio /> */}
+          <Camps>
+            <Input name="password" type="password" />
+            <Slider name="range" />
+          </Camps>
+          <Camps>
+            <Radio name="radio" options={options} />
+          </Camps>
           {/* <CheckBox /> */}
-          <Slider name="range" />
-        </Camps>
+        </Fields>
         <Footer>
           <Submit>Salvar</Submit>
         </Footer>

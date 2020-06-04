@@ -11,11 +11,13 @@ import { BsPlusSquareFill } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
 interface Props {
     name: string;
-  }
+    height?: number;
+    width?: number;
+}
   
 type InputProps = JSX.IntrinsicElements['input'] & Props;
 
-const File: React.FC<InputProps> = ({ name, ...rest }) => {
+const File: React.FC<InputProps> = ({ name, height = 50, width = 280, ...rest }) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const { fieldName, registerField, error } = useField(name);
     const [ preview, setPreview] = useState<File | null>();
@@ -48,15 +50,15 @@ const File: React.FC<InputProps> = ({ name, ...rest }) => {
     }, [fieldName, registerField]);
 
     return (
-        <Container>
+        <Container height={height} width={width}>
             <Label htmlFor={id.toString()} >
                 { (!preview) ? (
-                    <Msg>
+                    <Msg width={width} height={height}>
                         <BsPlusSquareFill size={20} />
                         <p>Selecione o Arquivo</p>
                     </Msg>
                 ) : (
-                    <Msg>
+                    <Msg width={width} height={height}>
                         <FaEdit size={20} />
                         <p>{preview.name}</p>
                     </Msg>

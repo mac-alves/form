@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-interface ContainerProps {
-    height: number
+export declare type InputStyleProps = {
+    height: number;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div<InputStyleProps>`
     height: ${props => props.height}px;
     width: 100%;
     display: flex;
