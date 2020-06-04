@@ -44,8 +44,8 @@ const App: React.FC = () => {
           </Camps>
           <Camps>
             <Radio name="radio" options={options} />
+            <CheckBox name="checkbox" label="Carro" />
           </Camps>
-          {/* <CheckBox /> */}
         </Fields>
         <Footer>
           <Submit>Salvar</Submit>

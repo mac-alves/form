@@ -12,7 +12,7 @@ extends React.InputHTMLAttributes<HTMLInputElement> {
 const Slider: React.FC<InputProps> = ({ name, height = 50, ...rest }) => {
     const inputRef = useRef(null);
 
-    const { fieldName, defaultValue = "", registerField, error } = useField(name);
+    const { fieldName, registerField } = useField(name);
 
     useEffect(() => {
         registerField({

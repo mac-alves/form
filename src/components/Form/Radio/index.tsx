@@ -17,7 +17,7 @@ extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Radio: React.FC<InputProps> = ({ name, height = 50, options, ...rest }) => {
-    const { fieldName, defaultValue = '', registerField, error } = useField(name);
+    const { fieldName, registerField } = useField(name);
     const [ checked, setChecked ] = useState<string>('');
     const inputRef = useRef(null);
 

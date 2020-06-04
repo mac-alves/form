@@ -7,8 +7,7 @@ import {
     Adjustment,
     Actions,
     Cancelar,
-    Salvar,
-    Img
+    Salvar
 } from './styles';
 import Cropper from 'react-easy-crop';
 import {getCroppedImg, Area} from './util';

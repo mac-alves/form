@@ -19,8 +19,9 @@ type InputProps = JSX.IntrinsicElements['input'] & Props;
 
 const File: React.FC<InputProps> = ({ name, height = 50, width = 280, ...rest }) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const { fieldName, registerField, error } = useField(name);
+    const { fieldName, registerField } = useField(name);
     const [ preview, setPreview] = useState<File | null>();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [ id, setId ] = useState(1 + Math.random() * (99));
 
     const handlePreview = useCallback((e: ChangeEvent<HTMLInputElement>) => {

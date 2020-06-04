@@ -5,7 +5,7 @@ import React, {
   useCallback, 
   useState 
 }  from 'react';
-import { Container, Img, Label, Error } from './styles';
+import { Container, Img, Label } from './styles';
 import { useField } from '@unform/core';
 import { BsPlusSquareFill } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
@@ -21,11 +21,12 @@ type InputProps = JSX.IntrinsicElements['input'] & Props;
 
 const FileImg: React.FC<InputProps> = ({ name, ...rest }) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const { fieldName, registerField, error } = useField(name);
+    const { fieldName, registerField } = useField(name);
     const [ preview, setPreview] = useState<string | null>(null);
     const [ finalImg, setFinalImg] = useState<string | null>(null);
     const [ classAnimate, setClassAnimate ] = useState('');
     const [ modalOpen, setModalOpen ] = useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [ id, setId ] = useState(1 + Math.random() * (99));
 
     function animateImg() {

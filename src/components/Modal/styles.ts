@@ -41,12 +41,6 @@ export const Image = styled.div`
     border-radius: 4px;
 `;
 
-export const Img = styled.img`
-    max-height: 400px;
-    height: auto;
-    width: auto;
-`;
-
 export const Adjustment = styled.div`
     display: flex;
     padding: 20px 20px 0px 20px;

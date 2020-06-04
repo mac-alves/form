@@ -43,17 +43,17 @@ export const Check = styled.div`
     border: 3px solid #AAAAAA;
     height: 24px;
     width: 24px;
-    z-index: 5;
     transition: border .25s linear;
     -webkit-transition: border .25s linear;
     position: relative;
-    border-radius: 6px;
+    border-radius: 12px;
     top: 0;
     left: 0;
 
     &::before{
         content: "";
         position: absolute;
+        border-radius: 6px;
         height: 12px;
         width: 12px;
         top: calc(50% - 6px);
