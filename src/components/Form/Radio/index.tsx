@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState }from 'react';
 import { ChangeEvent } from 'react';
 import { useField } from "@unform/core";
 
-import { Container, InputField, Check, Label, Msg } from './styles';
+import { Container, InputField, Check, Label, Msg, Error, Labels } from './styles';
 
 interface Option {
     value: string;
@@ -17,7 +17,7 @@ extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Radio: React.FC<InputProps> = ({ name, height = 50, options, ...rest }) => {
-    const { fieldName, registerField } = useField(name);
+    const { fieldName, registerField, error } = useField(name);
     const [ checked, setChecked ] = useState<string>('');
     const inputRef = useRef(null);
 
@@ -37,8 +37,9 @@ const Radio: React.FC<InputProps> = ({ name, height = 50, options, ...rest }) =>
     }, [fieldName, registerField]);
 
     return (
-        <Container height={height}>
+        <Container>
             <input type="hidden" id={fieldName} ref={inputRef}/>
+            <Labels height={height}>
             { options.map((option, key) => (
                 <Label key={key}>
                     <InputField
@@ -51,6 +52,8 @@ const Radio: React.FC<InputProps> = ({ name, height = 50, options, ...rest }) =>
                     <Msg>{option.label}</Msg>
                 </Label>
             )) }
+            </Labels>
+            <Error>{error}</Error>
         </Container>
     );
 }

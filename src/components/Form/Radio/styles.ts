@@ -4,12 +4,17 @@ export declare type InputStyleProps = {
     height: number;
 }
 
-export const Container = styled.div<InputStyleProps>`
-    height: ${props => props.height + 'px'};
+export const Container = styled.div`
     width: 100%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const Labels = styled.div<InputStyleProps>`
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    height: ${props => props.height + 'px'};
 
     & > label:not(:last-child){
         margin-right: 15px;
@@ -69,3 +74,8 @@ export const Msg = styled.p`
     margin-left: 5px;
     font-size: 1rem;
 `
+export const Error = styled.span`
+    color: #f2c7a8;
+    width: 100%;
+    height: 20px;
+`;

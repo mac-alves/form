@@ -6,11 +6,12 @@ export declare type InputStyleProps = {
 
 export const Container = styled.div<InputStyleProps>`
     width: 100%;
-    height: ${props => props.height + 'px'};
+    display: flex;
+    flex-direction: column;
 `;
 
-export const InputField = styled.input`
-    /* height: 50px; */
+export const InputField = styled.input<InputStyleProps>`
+    height: ${props => props.height + 'px'};
     width: 100%;
     padding: 5px;
     padding-left: 10px;
@@ -19,23 +20,22 @@ export const InputField = styled.input`
     font-size: 20px;
     color: #ccc;
     transition: all 0.3s linear;
-    height: 100%;
     border-radius: 5px;
 
     ::-webkit-input-placeholder{
-        color: #43b581;
+        color: #326e53;
     }
 
     :-moz-placeholder { /* Firefox 18- */
-        color: #43b581;
+        color: #326e53;
     }
 
     ::-moz-placeholder {  /* Firefox 19+ */
-        color: #43b581;
+        color: #326e53;
     }
 
     :-ms-input-placeholder{
-        color: #43b581;
+        color: #326e53;
     }
 
     &:focus{
@@ -45,4 +45,6 @@ export const InputField = styled.input`
 
 export const Error = styled.span`
     color: #f2c7a8;
+    width: 100%;
+    height: 20px;
 `;

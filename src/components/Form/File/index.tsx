@@ -6,7 +6,7 @@ import React, {
     useState 
 }  from 'react';
 import { useField } from '@unform/core';
-import { Container, Label, Msg } from './styles';
+import { Container, Label, Msg, Error } from './styles';
 import { BsPlusSquareFill } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
 interface Props {
@@ -19,7 +19,7 @@ type InputProps = JSX.IntrinsicElements['input'] & Props;
 
 const File: React.FC<InputProps> = ({ name, height = 50, width = 280, ...rest }) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const { fieldName, registerField } = useField(name);
+    const { fieldName, registerField, error } = useField(name);
     const [ preview, setPreview] = useState<File | null>();
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [ id, setId ] = useState(1 + Math.random() * (99));
@@ -71,7 +71,7 @@ const File: React.FC<InputProps> = ({ name, height = 50, width = 280, ...rest })
                     onChange={handlePreview}
                     {...rest} />
             </Label>
-            {/* { (error && (preview === UserImg)) && <Error>{error}</Error> } */}
+            <Error>{error}</Error>
         </Container>
     );
 }

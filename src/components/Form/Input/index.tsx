@@ -26,13 +26,14 @@ const Input: React.FC<InputProps> = ({ name, height = 50, ...rest }) => {
     return (
         <Container height={height}>
             <InputField
+                height={height}
                 ref={inputRef}
                 id={fieldName}
                 defaultValue={defaultValue}
                 autoComplete="off"
                 {...rest}
-            />
-            { error && <Error>{error}</Error> }
+                />
+            <Error>{error}</Error>
         </Container>
     );
 }

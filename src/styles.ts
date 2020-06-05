@@ -40,7 +40,7 @@ export const Fields = styled.div`
     grid-area: camps;
 
     & > div:not(:last-child) {
-        margin-bottom: 20px;
+        margin-bottom: 7px;
     }
 `;
 
@@ -56,7 +56,7 @@ export const Camps = styled.div`
 export const Footer = styled.div`
     grid-area: footer;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: flex-end;
     position: relative;
 
@@ -83,4 +83,11 @@ export const Submit = styled.button.attrs(props => ({type: "submit"}))`
     &:hover {
         background-color: #569779;
     }
+`;
+
+export const Msg = styled.div`
+    padding: 10px 15px;
+    transition: all 0.3s linear;
+    color: #fff;
+    border-radius: 5px;
 `;

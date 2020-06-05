@@ -17,6 +17,7 @@ export const Container = styled.div<InputStyleProps>`
     transition: all 0.3s linear;
     height: ${props => props.height + 'px'};
     border-radius: 5px;
+    position: relative;
 `;
 
 export const Label = styled.label`
@@ -44,4 +45,13 @@ export const Msg = styled.div<InputStyleProps>`
         overflow: hidden !important;
         text-overflow: ellipsis;
     }
+`;
+
+export const Error = styled.span`
+    position: absolute;
+    color: #f2c7a8;
+    width: 100%;
+    height: 20px;
+    top: calc(100% + 3px);
+    left: 0;
 `;
