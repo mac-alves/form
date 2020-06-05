@@ -43,7 +43,6 @@ const App: React.FC = () => {
 
   async function handleSubmit(data: FormFilds) {
     ( formRef as any).current.setErrors({});
-    console.log(data);
     
     try {
       // validateFile(data.arquivos, 'arquivos', 'Arquivos obrigatorios');
@@ -89,10 +88,10 @@ const App: React.FC = () => {
     }
   }
 
-  function validateFile(file: any, path: string, msg: string): boolean{
-    if (file) return true;
-    throw new CustomErrorForm(path, msg);
-  }
+  // function validateFile(file: any, path: string, msg: string): boolean{
+  //   if (file) return true;
+  //   throw new CustomErrorForm(path, msg);
+  // }
 
   return (
     <Container>
@@ -109,7 +108,7 @@ const App: React.FC = () => {
           <Slider name="range" />
           <Camps>
             <Radio name="radio" options={options} />
-            <CheckBox name="checkbox" label="Carro" />
+            <CheckBox name="checkbox" label="Pandora" />
           </Camps>
         </Fields>
         <Footer>
